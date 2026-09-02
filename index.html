@@ -299,6 +299,7 @@ const DRIVERS = [
   {name:"Richard Swiderski", place:"Michigan", country:"USA", flag:"🇺🇸", tzAbbr:"EDT", gmt:-4, region:"na", lat:44.31, lon:-85.60},
   {name:"Kevin Lawrence", place:"Texas", country:"USA", flag:"🇺🇸", tzAbbr:"CDT", gmt:-5, region:"na", lat:31.0, lon:-99.9},
   {name:"Eric Fleming", place:"Arizona", country:"USA", flag:"🇺🇸", tzAbbr:"MST", gmt:-7, region:"na", lat:34.2, lon:-111.7},
+  {name:"Justin Seter", place:"Atlanta, Georgia", country:"USA", flag:"🇺🇸", tzAbbr:"EDT", gmt:-4, region:"na", lat:33.75, lon:-84.39},
   {name:"James Bramall", place:"Morecambe, England", country:"United Kingdom", flag:"🇬🇧", tzAbbr:"BST", gmt:1, region:"eu", lat:54.07, lon:-2.87},
   {name:"Andrew Reece", place:"Liverpool, England", country:"United Kingdom", flag:"🇬🇧", tzAbbr:"BST", gmt:1, region:"eu", lat:53.41, lon:-2.98},
 ];
@@ -330,7 +331,7 @@ function localNow(gmt){
 function timeOfDay(gmt){
   const h = localNow(gmt).getHours() + localNow(gmt).getMinutes()/60;
   if(h>=6 && h<19) return {level:"green", label:"Day", note:"Local daytime"};
-  if((h>=19&&h<23) || (h>=5&&h<6)) return {level:"yellow", label:"Evening", note:"Local evening"};
+  if(h>=19 && h<23) return {level:"yellow", label:"Evening", note:"Local evening"};
   return {level:"blue", label:"Night", note:"Local night-time"};
 }
 
